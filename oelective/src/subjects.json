@@ -1,0 +1,17 @@
+[
+  {
+    "name": "sub1",
+    "code": "SUB1",
+    "students": []
+  },
+  {
+    "name": "sub2",
+    "code": "SUB2",
+    "students": []
+  },
+  {
+    "name": "sub3",
+    "code": "SUB3",
+    "students": []
+  }
+]
