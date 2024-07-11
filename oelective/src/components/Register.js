@@ -154,6 +154,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
+import Login from './Login';
 
 function Register() {
   let navigate=useNavigate()
@@ -321,7 +322,11 @@ function Register() {
                 />
               </div>
               <button type="submit">Register</button>
+              
             </form>
+            <Link to="/login/student">
+            <p>If already registered,click here</p>
+            </Link>
           </div>
         ) : role === 'faculty' ? (
           <div>
@@ -352,6 +357,9 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button onClick={handlestuRegister}>Register</button>
+            <Link to="/login/faculty">
+            <p>If already registered,click here</p>
+            </Link>
           </div>
         ) : (
           <p>Invalid role</p>
