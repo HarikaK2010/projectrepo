@@ -8,7 +8,8 @@ import Student from './components/Student';
 import Faculty from './components/Faculty';
 import RegisterSubjects from './components/RegisterSubjects';
 import DisplayRegSub from './components/DisplayRegSub';
-import SubReg from './components/SubReg';
+import Rules from './components/Rules';
+// import SubReg from './components/SubReg';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="/student" element={<Student />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/subRegister" element={<RegisterSubjects></RegisterSubjects>} />
-          <Route path="/subDisplay" element={DisplayRegSub} />
+          <Route path="/subDisplay" element={<DisplayRegSub></DisplayRegSub>} />
+          <Route path="/rules" element={<Rules></Rules>} />
         </Routes>
       </div>
     </Router>

@@ -1,0 +1,50 @@
+/* RegisterSubjects.css */
+
+.register-subjects-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .register-subjects-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .register-subjects-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-subjects-container form input,
+  .register-subjects-container form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .register-subjects-container form select {
+    cursor: pointer;
+  }
+  
+  .register-subjects-container form button {
+    padding: 10px 20px;
+    background-color: #0040FF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-subjects-container form button:hover {
+    background-color: #0020A0;
+  }
+  
+  

@@ -1,0 +1,43 @@
+/* Student.css */
+
+.student-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .student-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .student-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .student-container .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .student-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #0040FF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .student-container button:hover {
+    background-color: #0020A0;
+  }
+  

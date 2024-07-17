@@ -76,6 +76,16 @@ router.get('/student/:hallticketnumber', async (req, res) => {
 });
 
 
+// Add this endpoint to your existing server.js file
+
+// Endpoint to simulate fetching semester name from student database
+// router.get('/studsem', (req, res) => {
+//   // Replace with actual logic to fetch semester name from database
+//   const semesterName = '32'; // Example: Assume semester name '32' for demonstration
+//   res.json({ semesterName });
+// });
+
+
 router.post('/facadd', async (req, res) => {
   try {
     const { name, email, password, subjects } = req.body;
@@ -159,5 +169,42 @@ router.get('/faculty/:email', async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch faculty details' });
   }
 });
+
+router.get('/allotted-subjects/:hallTicketNumber', async (req, res) => {
+  try {
+    const student = await Student.findOne({ hallTicketNumber: req.params.hallTicketNumber }).populate('SelectedSubjects AssignedSubject ShiftedSubject SubjectShiftRequests.subject');
+    
+    if (!student) {
+      return res.status(404).json({ message: 'Student not found' });
+    }
+
+    // Fetch the subjects from the Subject collection
+    const subjects = await Subject.find({ _id: { $in: student.SelectedSubjects } });
+
+    if (!Array.isArray(subjects) || subjects.length === 0) {
+      console.error('No subjects found for the student:', student.name);
+      return res.status(404).json({ message: 'No subjects found' });
+    }
+
+    // Fetch the faculty for each subject
+    const subjectsWithFaculty = await Promise.all(subjects.map(async (subject) => {
+      const faculty = await Faculty.findOne({ subjects: subject._id });
+      return {
+        name: subject.name,
+        code: subject.code,
+        facultyName: faculty ? faculty.name : 'No faculty assigned'
+      };
+    }));
+
+    res.json({ student: student.name, subjects: subjectsWithFaculty });
+  } catch (err) {
+    console.error('Error fetching student data:', err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
+
 
 module.exports = router;
